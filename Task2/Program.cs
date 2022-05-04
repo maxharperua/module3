@@ -11,19 +11,15 @@ namespace Task2
             
             Console.WriteLine("Здраствуйте, введите количество карт");
             
-            while (true)
+            while (!int.TryParse(Console.ReadLine().Trim().ToUpper(), out cardCount))
             {
-                if(int.TryParse(Console.ReadLine(), out cardCount))
-                {
-                    break;
-                }
                 Console.WriteLine("Ошибка ввода, введите целое число!");
             }
             
             for (int i = 1; i <= cardCount; i++)
             {
                 Console.WriteLine("Введите номинал карты номер " + i );
-                string input = Console.ReadLine();
+                string input = Console.ReadLine().Trim().ToUpper();
  
                 bool result = int.TryParse(input, out var number);
                 if (result && number >= 2 && number <= 10)
@@ -35,13 +31,9 @@ namespace Task2
                     switch (input)
                     {
                         case "J":
-                        case "j":
                         case "Q":
-                        case "q":
                         case "K":
-                        case "k":
                         case "T":
-                        case "t":
                             totalScore += 10;
                             break;
                     }

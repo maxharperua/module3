@@ -9,17 +9,15 @@ namespace Task3
             Console.WriteLine("Введите целое число для проверкаи на признак простоты");
             int number;
             bool isSimple = true;
-            while (true)
+            
+            while (!int.TryParse(Console.ReadLine(), out number))
             {
-                if(int.TryParse(Console.ReadLine(), out number) && number >= 2)
-                {
-                    break;
-                }
                 Console.WriteLine("Ошибка ввода, введите целое число! > 1");
             }
             
             int i = 2;
-            while (i <= number / 2)
+            double sqrtNumber = Math.Sqrt(number);
+            while (i <= sqrtNumber)
             {
                 if (number % i == 0)
                 {

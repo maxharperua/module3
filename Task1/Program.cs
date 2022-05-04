@@ -8,12 +8,9 @@ namespace Task1
         {
             Console.WriteLine("Введите целое число");
             int num;
-            while (true)
+            
+            while (!int.TryParse(Console.ReadLine(), out num))
             {
-                if(int.TryParse(Console.ReadLine(), out num))
-                {
-                   break;
-                }
                 Console.WriteLine("Ошибка ввода, введите целое число!");
             }
 
